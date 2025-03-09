@@ -2,7 +2,6 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoBagOutline } from "react-icons/io5";
-import backimg from '../src/images/backimg.jpg';
 import React, { useState } from "react"
 import { NavLink } from 'react-router-dom';
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -98,18 +97,7 @@ const NavTop = () => {
 
 
 
-            <div className="backimg  relative flex">
-                <img
-                    src={backimg}
-                    alt="Background Image"
-                    className=" flex justify-center w-full rounded sm:max-sm:w-[400px]   h-[90vh]"
-                />
-                <h2 className="text-black absolute right-30  text-5xl top-20  sm:max-sm:right-20 sm:max-sm:top-90">
-                    <span className="text-red-500 ">Sale 20% off </span>
-                    <br /> On Everthing <br /> <span className="text-[15px] leading-2"> "Flash Sale! Grab Your Favorites  Before They’re Gone!"</span></h2>
-                <button className="  absolute  right-90 top-65 cursor-pointer bg-transparent outline-2 outline-offset-2 outline-red-500 rounded h-[30px] w-[100px]">Shop Now</button>
-
-            </div>
+           
         </>
     );
 }

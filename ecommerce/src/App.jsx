@@ -1,12 +1,13 @@
 import { createBrowserRouter ,RouterProvider} from 'react-router-dom';
 import React from 'react';
-import NavTop from './NavTop';
+import NavTop from './NavTop.jsx';
 import Home from './Home.jsx';
 import Shop from './Shop.jsx';
 import Contact from './Contact.jsx';
 import About from './About.jsx';
 import MyAccount from './MyAccount.jsx';
 import Cart from './Cart.jsx';
+import Product from './Product.jsx';
 
 
 
@@ -17,7 +18,9 @@ const reactRouter = createBrowserRouter([
   { path: "/Contact", element: <div> <NavTop/> <Contact /></div> },
   { path: "/About", element: <div> <NavTop/> <About /></div> },
   { path: "/MyAccount", element: <div> <NavTop/> <MyAccount /></div>},
-  { path: "/cart", element: <div> <NavTop/> <Cart/></div>}
+  { path: "/cart", element: <div> <NavTop/> <Cart/></div>},
+  { path: "/product/:id", element: <div> <NavTop/> <Product/></div>}
+
 ]);
 
 function App() {
