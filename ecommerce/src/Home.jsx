@@ -3,6 +3,10 @@ import Hero from "./Hero.jsx";
 import NewArrival from "./NewArrivals.jsx";
 import Bestseller from "./Bestseller.jsx";
 import Policyofproduct from "./Policyofproduct.jsx";
+import Subscribe from "./Subscribe.jsx";
+import Footer from "./Footer.jsx";
+
+
 
 
 function Home() {
@@ -13,6 +17,8 @@ function Home() {
                 <NewArrival/>
                 <Bestseller/>
                 <Policyofproduct/>
+                <Subscribe/>
+                <Footer/>
                 
 
                 
