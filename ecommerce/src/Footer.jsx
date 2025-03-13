@@ -18,7 +18,7 @@ const Footer = () => {
 
             </div>
 
-            <div className="flex justify-center text-gray-600 mx-12 ">
+            <div className="flex   justify-center items-center text-gray-600 mx-12 ">
                 <p>© Copy-right 2025 E_commerce.com . All Right Reserved </p>
 
             </div>

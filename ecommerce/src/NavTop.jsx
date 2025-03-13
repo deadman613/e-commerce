@@ -11,16 +11,22 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const NavTop = () => {
 
     const [visible, setVisible] = useState(false)
+
+    
+
     return (
         <>
             <nav
                 id="nav1"
-                className="h-16 w-full sm:max-sm::w-[400px] gap-5  rounded flex justify-between items-center  bg-white "
+                className="h-16 w-full sm:w-full gap-5  shadow-md shadow-gray-600 rounded flex justify-between items-center px-5 sm:px-30  bg-white "
             >
-                <h3 className="mx-5 text-2xl  max-sm:text-[12px] text-white font-bold flex ">E-commerce Website <FaShoppingCart className="py-1  mx-1.5 mt-1.5" /></h3>
+                <div className=" items-center">
+                <NavLink to='/' className="mx-5 cursor-pointer sm:text-2xl  text-[13px]   text-white font-bold flex ">E-commerce Website <FaShoppingCart className="h-8 w-8 sm:h-auto sm:w-5 mx-1.5 sm:ml-5 " />
+                </NavLink>
+                </div>
                 <div className="search  flex font-bold">
-                    <input type="text" className="text-white xl:w-auto sm:max-sm:w-4 md:w[15vh]
-                    h-10 w-auto  rounded-2xl pt-2 pb-2 px border-2 border-white ml-1.5" />
+                    <input type="text" className="text-white w-1/2 sm:w-full md:w[15vh]
+                    h-10   rounded-2xl pt-2 pb-2 px border-2 border-white ml-1.5" />
                     <NavLink to="/">
                         <FaMagnifyingGlass className=" text-white h-8 w-5 pt-1.5 mx-2.5" />
                     </NavLink>
@@ -29,7 +35,7 @@ const NavTop = () => {
                 </div>
 
 
-                <ul className=" hidden sm:flex justify-end gap-5 mr-20 cursor-pointer font-bold text-white">
+                <ul className=" hidden sm:flex justify-end gap-5 items-center cursor-pointer font-bold text-white">
 
                     <li className='text-white flex flex-col' >
                         <NavLink to="/" > Home <hr className=" w-4/4 border-none h-[1.5px] bg-white hidden" /></NavLink>

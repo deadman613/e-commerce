@@ -18,7 +18,7 @@ const NewArrival = () => {
 
     return (
         <>
-            <div className=" my-10">
+            <div className=" my-20 ">
                 <div className="">
                     <Title text1={"New"} text2={"Arrivals :)"} />
                 </div>

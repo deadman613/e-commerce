@@ -20,7 +20,7 @@ const Bestseller =()=>
 
 
     return(<>
-    <div className=" my-10">
+    <div className=" my-15">
         <div className="text-center text-3xl py-6">
             <Title text1={'Best'} text2={'Seller'}/>
         </div>
