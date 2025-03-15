@@ -9,11 +9,12 @@ import Productcompo from './Productcompo.jsx'
 
 
 function Shop() {
-    const { products } = useContext(ShopContext)
+    const { products, search, showSearch } = useContext(ShopContext)
     const [filter, setFilter] = useState(false)
     const [filterproduct, setProduct] = useState([])
     const [category, setCategory] = useState([])
     const [subCategory, setSubcategory] = useState([])
+    const [notavailable,setNotavaible]=useState("")
 
     const togglecatgory = (e) => {
         if (category.includes(e.target.value)) {
@@ -43,18 +44,29 @@ function Shop() {
         setProduct(products)
     }, [])
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(subCategory);
-        
 
 
-    },[subCategory])
+
+    }, [subCategory])
 
 
 
     const applyfilter = () => {
         let productcopy = products.slice();
-        
+     
+
+        if (showSearch && search) {
+            productcopy = productcopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+
+        }
+        else {
+
+            setNotavaible("Product is Not Present  Right Now :(");
+      
+
+        }
 
 
         if (category.length > 0) {
@@ -64,16 +76,17 @@ function Shop() {
         if (subCategory.length > 0) {
             productcopy = productcopy.filter(item => subCategory.includes(item.subCategory))
         }
-        
+
         setProduct(productcopy);
 
     }
 
     useEffect(() => {
+
         applyfilter();
 
 
-    }, [category,subCategory])
+    }, [category, subCategory, search, showSearch])
 
 
     return (<>
@@ -156,6 +169,7 @@ function Shop() {
 
 
                 </div>
+                <p className=" flex text-5xl text-gray-500 items-center justify-center h-2/2">{notavailable}</p>
 
             </div>
 

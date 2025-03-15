@@ -2,9 +2,10 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import { CgProfile } from "react-icons/cg";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoBagOutline } from "react-icons/io5";
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { NavLink } from 'react-router-dom';
 import { GiHamburgerMenu } from "react-icons/gi";
+import { ShopContext } from "./context/ShopContext";
 
 
 
@@ -13,6 +14,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const NavTop = () => {
 
     const [visible, setVisible] = useState(false)
+    const {setshowsearch,search,setSearch} = useContext(ShopContext)
 
     
 
@@ -27,14 +29,10 @@ const NavTop = () => {
                 <NavLink to='/' className="mx-5 cursor-pointer sm:text-2xl  text-[13px]   text-white font-bold flex ">E-commerce Website <FaShoppingCart className="h-8 w-8 sm:h-auto sm:w-5 mx-1.5 sm:ml-5 " />
                 </NavLink>
                 </div>
-                <div className="search  flex font-bold">
-                    <input type="text" className="text-white w-1/2 invisible sm:visible  sm:w-full md:w[15vh]
+                <div className="search  flex font-bold items-center">
+                    <input value={search}  onChange={(e)=>setSearch(e.target.value)} type="text" className="text-white w-1/2 invisible sm:visible  sm:w-full md:w[15vh]
                     h-10   rounded-2xl pt-2 pb-2 px border-2 border-white ml-1.5" />
-                    <NavLink to="/">
-                        <FaMagnifyingGlass className=" text-white h-8 w-5 pt-1.5 mx-2.5" />
-                    </NavLink>
-
-
+                        <FaMagnifyingGlass  onClick={()=>setshowsearch(true)} className=" text-white h-8 w-5 pt-1.5 mx-2.5" />
                 </div>
 
 
