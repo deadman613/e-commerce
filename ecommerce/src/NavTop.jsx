@@ -8,6 +8,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 
 
+
+
 const NavTop = () => {
 
     const [visible, setVisible] = useState(false)
@@ -16,16 +18,17 @@ const NavTop = () => {
 
     return (
         <>
+         
             <nav
                 id="nav1"
-                className="h-16 w-full sm:w-full gap-5  shadow-md shadow-gray-600 rounded flex justify-between items-center px-5 sm:px-30  bg-white "
+                className="h-20 w-full sm:w-full gap-5  shadow-md shadow-gray-600 rounded flex justify-between items-center px-5 sm:px-30  bg-white "
             >
                 <div className=" items-center">
                 <NavLink to='/' className="mx-5 cursor-pointer sm:text-2xl  text-[13px]   text-white font-bold flex ">E-commerce Website <FaShoppingCart className="h-8 w-8 sm:h-auto sm:w-5 mx-1.5 sm:ml-5 " />
                 </NavLink>
                 </div>
                 <div className="search  flex font-bold">
-                    <input type="text" className="text-white w-1/2 sm:w-full md:w[15vh]
+                    <input type="text" className="text-white w-1/2 invisible sm:visible  sm:w-full md:w[15vh]
                     h-10   rounded-2xl pt-2 pb-2 px border-2 border-white ml-1.5" />
                     <NavLink to="/">
                         <FaMagnifyingGlass className=" text-white h-8 w-5 pt-1.5 mx-2.5" />
@@ -63,10 +66,10 @@ const NavTop = () => {
                             <h2 className=" mb-1.5"></h2>   <CgProfile className="mr-10 pb-1.5 h-8  w-5  " />
                         </NavLink>
                         <div className=" group-hover:block hidden absolute dropdown-menu right-0  pt-2">
-                            <div className=" flex flex-col  gap-2 w-30 py-3 px-2 bg-white text-white">
-                                <p className="cursor-pointer hover:text-blue-900 font-bold " >Login</p>
-                                <p className="cursor-pointer hover:text-blue-900 font-bold"  >Signup</p>
-                                <p className="cursor-pointer hover:text-blue-900 font-bold" >MyAccount</p>
+                            <div className=" flex flex-col  gap-2 w-30 py-3 px-2 bg-white text-black">
+                                <p className="cursor-pointer hover:text-red-700 font-bold " >Login</p>
+                                <p className="cursor-pointer hover:text-red-700 font-bold"  >Signup</p>
+                                <p className="cursor-pointer hover:text-red-700 font-bold" >MyAccount</p>
                             </div>
                         </div>
 
@@ -79,6 +82,7 @@ const NavTop = () => {
                     <GiHamburgerMenu onClick={() => setVisible(!visible)} className="text-white   mt-1.5 w-5  h-6 " />
 
                 </div>
+
             </nav>
 
             <div className={`fixed top-0 right-0 h-full w-[250px] bg-white shadow-lg transform transition-transform duration-300 z-50 
@@ -97,6 +101,8 @@ const NavTop = () => {
                     <li><NavLink to="/Cart" onClick={() => setVisible(false)}>Cart</NavLink></li>
                     <li><NavLink to="/MyAccount" onClick={() => setVisible(false)}>My Account</NavLink></li>
                 </ul>
+                    
+       
             </div>
 
 
