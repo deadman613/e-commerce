@@ -16,6 +16,7 @@ const NavTop = () => {
     const [visible, setVisible] = useState(false)
     const {setshowsearch,search,setSearch} = useContext(ShopContext)
 
+
     
 
     return (
@@ -30,7 +31,7 @@ const NavTop = () => {
                 </NavLink>
                 </div>
                 <div className="search  flex font-bold items-center">
-                    <input value={search}  onChange={(e)=>setSearch(e.target.value)} type="text" className="text-white w-1/2 invisible sm:visible  sm:w-full md:w[15vh]
+                    <input value={search} onChange={(e)=>setSearch(e.target.value)} type="text" className="text-white pl-3 w-1/2 invisible sm:visible  sm:w-full md:w[15vh]
                     h-10   rounded-2xl pt-2 pb-2 px border-2 border-white ml-1.5" />
                         <FaMagnifyingGlass  onClick={()=>setshowsearch(true)} className=" text-white h-8 w-5 pt-1.5 mx-2.5" />
                 </div>

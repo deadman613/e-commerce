@@ -14,7 +14,7 @@ function Shop() {
     const [filterproduct, setProduct] = useState([])
     const [category, setCategory] = useState([])
     const [subCategory, setSubcategory] = useState([])
-    const [notavailable,setNotavaible]=useState("")
+    // const [notavailable,setNotavaible]=useState(false)
 
     const togglecatgory = (e) => {
         if (category.includes(e.target.value)) {
@@ -61,12 +61,14 @@ function Shop() {
             productcopy = productcopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
 
         }
-        else {
+        // else {
 
-            setNotavaible("Product is Not Present  Right Now :(");
+
+
+        //     setNotavaible(true,"Product is Not Present  Right Now :(");
       
 
-        }
+        // }
 
 
         if (category.length > 0) {
@@ -169,7 +171,8 @@ function Shop() {
 
 
                 </div>
-                <p className=" flex text-5xl text-gray-500 items-center justify-center h-2/2">{notavailable}</p>
+
+                {/* {notavailable ?  <p className=" flex text-2xl sm:text-5xl text-gray-500 items-center py-10 justify-center h-2/2">{notavailable}</p>: ""} */}
 
             </div>
 
