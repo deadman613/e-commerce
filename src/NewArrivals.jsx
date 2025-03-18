@@ -5,6 +5,7 @@ import Productcompo from "./Productcompo.jsx";
 
 
 
+
 const NewArrival = () => {
     const { products } = useContext(ShopContext)
     const [latest, setLatest] = useState([]);
