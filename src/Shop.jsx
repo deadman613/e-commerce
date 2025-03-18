@@ -95,7 +95,7 @@ function Shop() {
 
 
 
-        <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t  mr-0 ml-8 sm:mx-20">
+        <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t sm:mx-20">
 
             {/* Right */}
 
@@ -153,19 +153,16 @@ function Shop() {
             <div className="flex-1">
 
                 <div className=" flex justify-between  text-base sm:text-[15px] mb-4 sm:ml-20">
-                  <p className=" flex text-[25px] sm:text-4xl ">
-                    ALL   <span className="text-red-600 mx-2.5" >COLLECTION</span> 
-                  </p>
+                    <p className="mx-5 text-3xl"> ALL <span className="text-red-600">COLLECTION</span></p>
                 </div>
 
                 {/* map product  */}
 
-                <div className="grid grid-cols-2 md:grid-cols-3 sm:w-3xl ">
+                <div className="grid grid-cols-2 gap-5 md:grid-cols-3 ">
                     {
 
                         filterproduct.map((item, index) => (
                             <Productcompo key={index} name={item.name} id={item._id} price={item.price} image={item.image} />
-
 
                         ))
 
