@@ -11,6 +11,7 @@ function Shop() {
     const [filterproduct, setProduct] = useState([]);
     const [category, setCategory] = useState([]);
     const [subCategory, setSubcategory] = useState([]);
+    const [cart,setCart]=useState()
 
     const toggleCategory = (e) => {
         if (category.includes(e.target.value)) {

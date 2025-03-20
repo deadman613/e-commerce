@@ -9,6 +9,7 @@ import MyAccount from './MyAccount.jsx';
 import Cart from './Cart.jsx';
 import Product from './Product.jsx';
 import Searchbar from "./Searchbar.jsx";
+import Footer from './Footer.jsx';
 
 
 
@@ -20,7 +21,7 @@ const reactRouter = createBrowserRouter([
   { path: "/Contact", element: <div> <NavTop /> <Searchbar /> <Contact /></div> },
   { path: "/About", element: <div> <NavTop />   <Searchbar /> <About /></div> },
   { path: "/MyAccount", element: <div> <NavTop /> <Searchbar /> <MyAccount /></div> },
-  { path: "/cart", element: <div> <NavTop />  <Searchbar /> <Cart /></div> },
+  { path: "/cart", element: <div> <NavTop />  <Searchbar /> <Cart /> <Footer/></div> },
   { path: "/product/:productId", element: <div> <NavTop />  <Searchbar /> <Product /></div> }
 
 ]);

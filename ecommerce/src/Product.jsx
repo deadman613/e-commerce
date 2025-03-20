@@ -7,19 +7,18 @@ import Footer from "./Footer.jsx"
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency } = useContext(ShopContext);
-  const [productData, setProductData] = useState(null);
+  const { products, currency , addtocart } = useContext(ShopContext);
+  const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
   const [description, setDescription] = useState(false)
   const [review, setReview] = useState(false)
+  const [size, setSize] = useState("")
 
   useEffect(() => {
     const fetchProductData = () => {
       const product = products.find((item) => item._id === productId);
       if (product) {
         setProductData(product);
-        console.log('product', product);
-
         setImage(product.image[0]);
       }
     };
@@ -63,15 +62,18 @@ const Product = () => {
           <p className="text-lg text-gray-600 mt-2">{productData.description}</p>
           <p className="text-lg text-black font-bold mt-2"><span className="text-gray-700">Price:</span>{currency}{productData.price}</p>
           <div className=" mt-4 flex items-center sm:justify-start   justify-center ">
-            <p className="text-[20px] font-bold text-gray-800">Size:</p>
-            <button className="border-b-2 bg-black text-white rounded hover:bg-red-600 h-10 w-10  px-1.5 py-1.5 mx-1.5" >S</button>
-            <button className="border-b-2 bg-black text-white rounded hover:bg-red-600 h-10 w-10 px-1.5 py-1.5 mx-1.5">M</button>
-            <button className="border-b-2 bg-black text-white rounded hover:bg-red-600 h-10 w-10 px-1.5 py-1.5 mx-1.5" >x</button>
-            <button className="border-b-2 bg-black text-white rounded hover:bg-red-600 h-10 w-10 px-1.5 py-1.5 mx-1.5">xl</button>
+            <p className="text-[20px] font-bold text-gray-800">Sizes:</p>
+            <div className="flex gap-2">
+              {
+                productData.sizes.map((item,index) => (
+                  <button onClick={() => setSize(item)} className={` ml-2 py-1.5 px-3 bg-gray-300 ${item === size ? "bg-red-600 text-white" : ""}`} key={index}>{item}</button>
 
+                ))
+              }
+            </div>
           </div>
           <div className="flex flex-col sm:flex-row sm:justify-start items-center justify-center cursor-pointer ">
-            <button className=" px-2 py-1 mt-5 h-10 w-40 border-0 bg-gray-200 scale-90 cursor-pointer hover:scale-95 text-black">
+            <button onClick={()=>addtocart(productData._id,size)} className=" px-2 py-1 mt-5 h-10 w-40 border-0 bg-gray-200 scale-90 cursor-pointer hover:scale-95 text-black">
               Add to cart
             </button>
             <button className=" px-2 py-1 mt-5 h-10 w-40 border-0 bg-gray-200 scale-90 cursor-pointer hover:scale-95 text-black">
@@ -92,10 +94,10 @@ const Product = () => {
        justify-start">
         {/* description of product */}
         <div className="flex flex-row">
-          <button onClick={() => {setDescription(!description),setReview(false)}} className="border border-gray-400 py-2 rounded  bg-gray-200   px-2 ml-10 mt-5 flex justify-start" >
+          <button onClick={() => { setDescription(!description), setReview(false) }} className="border border-gray-400 py-2 rounded  bg-gray-200   px-2 ml-10 mt-5 flex justify-start" >
             Description
           </button>
-          <button onClick={() => {setReview(!review),setDescription(false)}}  className="border border-gray-400 py-2   bg-gray-200 rounded px-2 ml-10 mt-5 flex justify-start" >
+          <button onClick={() => { setReview(!review), setDescription(false) }} className="border border-gray-400 py-2   bg-gray-200 rounded px-2 ml-10 mt-5 flex justify-start" >
             Review
           </button>
 
@@ -106,9 +108,11 @@ const Product = () => {
 
         {review && (<div className={`bg-gray-200 ml-10 mt-3 px-3 py-3 w-auto mx-4 `}>
           <img className="border-black  pl-3 mb-1.5" src={assets.profile_icon} alt="" />
-      
+
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto provident illum nihil expedita eveniet! Maiores ipsa enim pariatur est, eos non numquam alias ipsam, ducimus unde, voluptates repellendus distinctio eum?</p>
         </div>)}
+
+
 
       </div>
       <Footer />
