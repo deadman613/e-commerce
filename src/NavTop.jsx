@@ -14,26 +14,26 @@ import { ShopContext } from "./context/ShopContext";
 const NavTop = () => {
 
     const [visible, setVisible] = useState(false)
-    const {setshowsearch,search,setSearch} = useContext(ShopContext)
+    const { setshowsearch, search, setSearch, getCartCount } = useContext(ShopContext)
 
 
-    
+
 
     return (
         <>
-         
+
             <nav
                 id="nav1"
                 className="h-20 w-full sm:w-full gap-5  shadow-md shadow-gray-600 rounded flex justify-between items-center px-5 sm:px-30  bg-white "
             >
                 <div className=" items-center">
-                <NavLink to='/' className="mx-5 cursor-pointer sm:text-2xl  text-[13px]   text-white font-bold flex ">E-commerce Website <FaShoppingCart className="h-8 w-8 sm:h-auto sm:w-5 mx-1.5 sm:ml-5 " />
-                </NavLink>
+                    <NavLink to='/' className="mx-5 cursor-pointer sm:text-2xl  text-[13px]   text-white font-bold flex ">E-commerce Website <FaShoppingCart className="h-8 w-8 sm:h-auto sm:w-5 mx-1.5 sm:ml-5 " />
+                    </NavLink>
                 </div>
                 <div className="search  flex font-bold items-center">
-                    <input value={search} onChange={(e)=>setSearch(e.target.value)} type="text" className="text-white pl-3 w-1/2 invisible sm:visible  sm:w-full md:w[15vh]
+                    <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" className="text-white pl-3 w-1/2 invisible sm:visible  sm:w-full md:w[15vh]
                     h-10   rounded-2xl pt-2 pb-2 px border-2 border-white ml-1.5" />
-                        <FaMagnifyingGlass  onClick={()=>setshowsearch(true)} className=" text-white h-8 w-5 pt-1.5 mx-2.5" />
+                    <FaMagnifyingGlass onClick={() => setshowsearch(true)} className=" text-white h-8 w-5 pt-1.5 mx-2.5" />
                 </div>
 
 
@@ -54,8 +54,11 @@ const NavTop = () => {
                         <NavLink to="/About" > About  <hr className=" w-4/4 border-none h-[1.5px] bg-white hidden" /></NavLink>
                     </li>
 
-                    <li className=' relative cart text-white flex flex-col' >
-                        <NavLink to="/Cart" ><IoBagOutline className=" pb-1.5 h-7 w-10 mx-1.5 font-bold " />  </NavLink>
+                    <li className='' >
+                        <NavLink to="/Cart" className=" relative cart text-white  flex items-center flex-col">
+                        <IoBagOutline className="  items-center h-8 w-10 mx-1.5 font-bold " />
+                        <p className="absolute rounded-full w-5 b right-[-1px] bottom-[-15px] text-center aspect-square items-center  bg-white text-black">{getCartCount()}</p>
+                        </NavLink>
 
 
                     </li>
@@ -86,8 +89,8 @@ const NavTop = () => {
 
             <div className={`fixed top-0 right-0 h-full w-[250px] bg-white shadow-lg transform transition-transform duration-300 z-50 
                 ${visible ? "translate-x-0" : "translate-x-full"}`}>
-                <button 
-                    onClick={() => setVisible(false)} 
+                <button
+                    onClick={() => setVisible(false)}
                     className="absolute top-4 right-4 text-black text-xl font-bold"
                 >
                     ✕
@@ -100,15 +103,15 @@ const NavTop = () => {
                     <li><NavLink to="/Cart" onClick={() => setVisible(false)}>Cart</NavLink></li>
                     <li><NavLink to="/MyAccount" onClick={() => setVisible(false)}>My Account</NavLink></li>
                 </ul>
-                    
-       
+
+
             </div>
 
 
 
 
 
-           
+
         </>
     );
 }
