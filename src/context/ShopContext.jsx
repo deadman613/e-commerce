@@ -59,6 +59,33 @@ const ShopContextProvider = (props) => {
 
     }, [cartItems])
 
+    const updateQuantity =(itemID,size,quantity)=>
+    {
+        let deleteData=structuredClone(cartItems)
+
+        deleteData[itemID][size]=quantity;
+
+        setcartItems(deleteData);
+
+
+    }
+    const addtotalamount = () => {
+        let totalamount = 0;
+    
+        for (const items in cartItems) {
+            let iteminfo = products.find((product) => product._id === items);
+    
+            if (iteminfo) {  // Check if the item exists in products
+                for (const item in cartItems[items]) {
+                    totalamount += iteminfo.price * cartItems[items][item];
+                }
+            }
+        }
+    
+        return totalamount;  // Return the calculated total amount
+    };
+    
+
 
 
     const value = {
@@ -71,7 +98,9 @@ const ShopContextProvider = (props) => {
         setshowsearch,
         cartItems,
         addtocart,
-        getCartCount
+        getCartCount,
+        updateQuantity,
+        addtotalamount
 
 
     }
