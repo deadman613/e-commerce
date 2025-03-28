@@ -56,8 +56,8 @@ const NavTop = () => {
 
                     <li className='' >
                         <NavLink to="/Cart" className=" relative cart text-white  flex items-center flex-col">
-                        <IoBagOutline className="  items-center h-8 w-10 mx-1.5 font-bold " />
-                        <p className="absolute rounded-full w-5 b right-[-1px] bottom-[-15px] text-center aspect-square items-center  bg-white text-black">{getCartCount()}</p>
+                            <IoBagOutline className="  items-center h-8 w-10 mx-1.5 font-bold " />
+                            <p className="absolute rounded-full w-5 b right-[-1px] bottom-[-15px] text-center aspect-square items-center  bg-white text-black">{getCartCount()}</p>
                         </NavLink>
 
 
@@ -69,9 +69,9 @@ const NavTop = () => {
                         </NavLink>
                         <div className=" group-hover:block hidden absolute dropdown-menu right-0  pt-2">
                             <div className=" flex flex-col  gap-2 w-30 py-3 px-2 bg-white text-black">
-                                <p className="cursor-pointer hover:text-red-700 font-bold " >Login</p>
-                                <p className="cursor-pointer hover:text-red-700 font-bold"  >Signup</p>
-                                <p className="cursor-pointer hover:text-red-700 font-bold" >MyAccount</p>
+                                <NavLink to="/Loginpage" className="cursor-pointer hover:text-red-700 font-bold " >Login</NavLink>
+                                <NavLink to='/signup'    className="cursor-pointer hover:text-red-700 font-bold"  >Signup</NavLink>
+                                <NavLink to='/MyAccount'  className="cursor-pointer hover:text-red-700 font-bold" >MyAccount</NavLink>
                             </div>
                         </div>
 
